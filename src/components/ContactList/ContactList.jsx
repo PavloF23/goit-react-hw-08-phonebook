@@ -26,7 +26,7 @@ export function ContactList() {
             <Contact>
               <Img width={60} src={foto} alt="avatar"/>
               <Box>
-                  <span><AiFillPhone/>{name}:</span>
+                  <span><AiFillPhone/> {name}:</span>
                   <span>{number}</span>
               </Box>
             </Contact>    
