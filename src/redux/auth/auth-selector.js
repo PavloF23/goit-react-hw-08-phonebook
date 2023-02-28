@@ -1,7 +1,3 @@
-// export const getIsLoggedIn = state => state.auth.isloggedIn;
-
-// export const getUsername = state => state.auth.user.name;
-
 export const selectIsCheckingLogin = state => state.auth.isCheckingLogin;
 
 export const selectUserName = state => state.auth.user.name;

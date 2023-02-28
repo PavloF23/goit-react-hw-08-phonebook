@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-// margin-top: 30px;
-width: 300px;
-height: 70px;
-align-items: center;
+    width: 300px;
+    height: 70px;
+    align-items: center;
 `;
 
 export const Label = styled.label`
@@ -23,18 +22,18 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-border: 2px solid rgba(33, 33, 33, 0.2);
-color: #000;
-outline: none;
-background: #fff;
-padding: 10px;
-border-radius: 10px;
-font-size: 14px;
-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 2px solid rgba(33, 33, 33, 0.2);
+    color: #000;
+    outline: none;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:focus,
     &:not(:placeholder-shown) {
@@ -44,10 +43,10 @@ transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `; 
 
 export const Span = styled.span`
-position: absolute;
-top: 10px;
-left: 10px;
-font-size: 14px;
-transition: 0.6s;
-color: #5793aad2;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+    transition: 0.6s;
+    color: #5793aad2;
 `;

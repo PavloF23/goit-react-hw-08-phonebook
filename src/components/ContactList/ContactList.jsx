@@ -26,7 +26,6 @@ export function ContactList() {
          getVisibleContacts().map(({ id, name, number, foto }) => (
           <Item key={id} >
             <Contact>
-              {/* <Img width={60} src={foto} alt="avatar"/> */}
               <BsPersonCircle size="40" color={getRandomHexColor()} />
               <Box>
                   <span><AiFillPhone/> {name}:</span>

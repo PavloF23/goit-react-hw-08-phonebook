@@ -1,5 +1,4 @@
 import { HomeMenuWrap, HomeLink, ButtonLink } from './HomeMenu.styled';
-// import { } from 'components/Button/Button.styled';
 
 export function HomeMenu() {
   return (

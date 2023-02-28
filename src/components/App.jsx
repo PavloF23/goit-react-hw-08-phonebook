@@ -9,26 +9,13 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { Toaster } from 'react-hot-toast';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { ThemeProvider } from 'theme-ui';
-// import { theme } from 'utils/theme';
-// import { Container }  from './Container/Container';
-// import { AppStyle } from './App.styled';
-// import { ContactForm } from './ContactForm/ContactForm';
-// import { ContactList } from './ContactList/ContactList';
-// import { Filter } from './Filter/Filter';
-// import { getIsLoading, getError } from "redux/selectors";
-// import AppBar from './AppBar/AppBar';
-// import Contacts from '../pages/Contacts';
-// import Register from '../pages/Register';
-// import Login from '../pages/Login'; 
-// const HomePage = lazy(() => import('../pages/Home'));
+
 const Register = lazy(() => import('../pages/Register'));
 const Login = lazy(() => import('../pages/Login'));
 const Contacts = lazy(() => import('../pages/Contacts'));
-// const AddContact = lazy(() => import('../pages/AddContact'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -37,9 +24,7 @@ export const App = () => {
   return (
     <ThemeProvider>
     <Suspense
-      fallback={
-        <Loader />
-      }
+      fallback={<Loader />}
     >
     <Routes>
       <Route path="/" element={<SharedLayout />}>
@@ -53,10 +38,8 @@ export const App = () => {
           element={
             <RestrictedRoute  component={<Login />} />} />
         <Route
-              path="/contacts"
-              element={<PrivateRoute component={<Contacts />} />
-          }
-        />
+          path="/contacts"
+          element={<PrivateRoute component={<Contacts />} />} />
       </Route>
     </Routes>
     </Suspense>

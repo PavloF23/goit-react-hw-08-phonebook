@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { Container } from 'components/Container/Container';
 
 export const Header = styled.div`
   position: fixed;
@@ -21,6 +20,13 @@ export const FooterWrap = styled.div`
   height: 100%;
 `;
 
+export const LayoutBox = styled.div`
+  height: 100vh;
+  display:flex;
+  justifyContent: center;
+  alignItems: center;
+`;
+
 export const Footer = styled.div`
   position: fixed;
   left: 0;
@@ -33,7 +39,6 @@ export const Footer = styled.div`
   height: 40px;
   background: #808080;
   color: #ffffff;
-  // z-index: 1000;
 `;
 
 export const FooterLink = styled.a`
@@ -41,8 +46,9 @@ export const FooterLink = styled.a`
   color: white;
   text-decoration: none;
   transition: color 250ms linear;
-  :hover,
-  :focus {
+
+  &:hover,
+  &:focus {
     color: red;
   }
 `;

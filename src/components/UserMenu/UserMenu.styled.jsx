@@ -13,7 +13,6 @@ export const UserBox = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-left: auto;
-  // margin-top: 10px;
   align-items: center;
 `;
 
@@ -47,8 +46,9 @@ export const Button = styled.button`
   border: none;
   background-color: #808080;
   transition: background-color 250ms linear;
-  :hover,
-  :focus {
+  
+  &:hover,
+  &:focus {
     background-color: red;
   }
 `;

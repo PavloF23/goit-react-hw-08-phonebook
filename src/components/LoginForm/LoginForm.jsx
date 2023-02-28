@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/auth-operations';
-import { FormLogin, Label, Input, LogInBox, Span, Button} from './LoginForm.styled'
+import { FormLogin, Label, Input, LogInBox, Span, Error, Button} from './LoginForm.styled'
 import { NavLink } from 'react-router-dom';
 import * as yup from 'yup';
 import { Formik } from 'formik';
@@ -41,12 +41,12 @@ export const LoginForm = () => {
       <Label>
       <Span>Email</Span>
         <Input type="email" name="email" />
-        {/* <Error component="div" name="number" /> */}
+        <Error component="div" name="number" />
       </Label>
       <Label>
       <Span>Password</Span>
         <Input type="password" name="password" />
-        {/* <Error component="div" name="number" /> */}
+        <Error component="div" name="number" />
       </Label>
       <LogInBox>
       <Button type="submit">Log In</Button>

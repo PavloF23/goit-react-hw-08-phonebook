@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { Container } from 'components/Container/Container';
 import { NavLink } from 'react-router-dom';
 
 export const HomeLink = styled(NavLink)`

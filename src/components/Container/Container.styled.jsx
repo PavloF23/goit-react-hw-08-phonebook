@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Contain = styled.div`
-margin-top: 70px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    padding: 20px 40px;
-    background-color: #fff5ee;
-    box-shadow: 1px 4px 6px rgba(0,0,0,0.16),0px 4px 4px rgba(0,0,0,0.06),0px 1px 1px rgba(0,0,0,0.12);
-  `;
+  margin-top: 70px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 20px 40px;
+  background-color: #fff5ee;
+  box-shadow: 1px 4px 6px rgba(0,0,0,0.16),0px 4px 4px rgba(0,0,0,0.06),0px 1px 1px rgba(0,0,0,0.12);
+`;

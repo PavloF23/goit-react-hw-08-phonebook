@@ -1,12 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import { Header, Footer, FooterWrap, FooterLink } from './SharedLayout.styled';
+import { Header, LayoutBox, Footer, FooterWrap, FooterLink } from './SharedLayout.styled';
 import { Suspense } from 'react';
-// import { Box } from 'components/Box/Box';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { HomeMenu } from 'components/HomeMenu/HomeMenu';
 import { Bars } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
-// import { Logo } from 'components/Logo/Logo';
 import { selectIsLoggedIn } from 'redux/auth/auth-selector';
 
 export const SharedLayout = () => {
@@ -21,12 +19,7 @@ export const SharedLayout = () => {
 
       <Suspense
         fallback={
-          <div
-            height="100vh"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
+          <LayoutBox>
             <Bars
               height="60"
               width="80"
@@ -36,7 +29,7 @@ export const SharedLayout = () => {
               wrapperClass=""
               visible={true}
             />
-          </div>
+          </LayoutBox>
         }
       >
         <Outlet />

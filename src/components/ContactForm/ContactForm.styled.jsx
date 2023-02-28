@@ -3,46 +3,39 @@ import styled from 'styled-components';
 import InputMask from 'react-input-mask';
 
 export const FormContact = styled(Form)`
-// margin-top: 20px;
-display: flex;
-flex-direction: row;
-gap: 24px;
-align-items: center;
-position: fixed;
-width: 500px;
-z-index: 1;
-background-color: #fff5ee;
-padding: 20px 40px;
-top: 80px;
-/* left: 50%; */
-margin-left: -40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  width: 500px;
+  padding: 20px 40px;
+  position: fixed;
+  z-index: 1;
+  top: 80px;
+  background-color: #fff5ee; 
+  margin-left: -40px;
 `;
 
 export const ContactBox = styled.div`
-display: flex;
-flex-direction: column;
-gap: 5px;
-// align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `;
 
 export const Label = styled.label`
-position: relative;
-display: block;
-width: 300px;
-height: 10px;
-margin-bottom: 35px;
-color: #000;
-font-size: 18px;
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 10px;
+  margin-bottom: 35px;
+  color: #000;
+  font-size: 18px;
 
-// &focus::placeholder {
-//   color: #010101;
-// }
-
-& input:focus ~ span,
-& input:not(:placeholder-shown) ~ span{
+  & input:focus ~ span,
+  & input:not(:placeholder-shown) ~ span{
     transform: translateX(-10px) translateY(-25px);
     font-size: 10px;
-}
+  }
 `;
 
 export const Input = styled(Field)`
@@ -86,16 +79,16 @@ font-size: 14px;
 `;
 
 export const Span = styled.span`
-position: absolute;
-top: 10px;
-left: 10px;
-font-size: 14px;
-transition: 0.6s;
-color: #5793aad2;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  transition: 0.6s;
+  color: #5793aad2;
 `;
 
 export const Button = styled.button`
-width: 200px;
+  width: 200px;
   height: 50px;
   border-radius: 10px;
   border: none;
