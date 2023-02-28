@@ -5,7 +5,7 @@ position: relative;
 display: flex;
 flex-direction: column;
 gap: 20px;
-margin-top: 30px;  
+margin-top: 130px;  
 color: #000;  
 font-weight: 500;  
 font-size: 20px;

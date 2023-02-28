@@ -1,20 +1,36 @@
 import { Form, Field, ErrorMessage } from 'formik';
 import styled from 'styled-components';
+import InputMask from 'react-input-mask';
 
 export const FormContact = styled(Form)`
-margin-top: 20px;
+// margin-top: 20px;
 display: flex;
-flex-direction: column;
+flex-direction: row;
 gap: 24px;
 align-items: center;
+position: fixed;
+width: 500px;
+z-index: 1;
+background-color: #fff5ee;
+padding: 20px 40px;
+top: 80px;
+/* left: 50%; */
+margin-left: -40px;
+`;
+
+export const ContactBox = styled.div`
+display: flex;
+flex-direction: column;
+gap: 5px;
+// align-items: center;
 `;
 
 export const Label = styled.label`
 position: relative;
 display: block;
-width: 400px;
+width: 300px;
 height: 10px;
-margin-bottom: 50px;
+margin-bottom: 35px;
 color: #000;
 font-size: 18px;
 
@@ -24,8 +40,8 @@ font-size: 18px;
 
 & input:focus ~ span,
 & input:not(:placeholder-shown) ~ span{
-    transform: translateX(-13px) translateY(-30px);
-    font-size: 20px;
+    transform: translateX(-10px) translateY(-25px);
+    font-size: 10px;
 }
 `;
 
@@ -38,9 +54,29 @@ border: 2px solid rgba(33, 33, 33, 0.2);
 color: #000;
 outline: none;
 background: #fff;
-padding: 10px;
+padding: 6px;
 border-radius: 10px;
-font-size: 20px;
+font-size: 14px;
+
+&:focus,
+&:not(:placeholder-shown) {
+    border-color: #010101;
+    outline-color: rgba(33, 33, 33, 0.5);
+  }
+`;
+
+export const InputNumber = styled(InputMask)`
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+border: 2px solid rgba(33, 33, 33, 0.2);
+color: #000;
+outline: none;
+background: #fff;
+padding: 6px;
+border-radius: 10px;
+font-size: 14px;
 
 &:focus,
 &:not(:placeholder-shown) {
@@ -51,9 +87,9 @@ font-size: 20px;
 
 export const Span = styled.span`
 position: absolute;
-top: 5px;
+top: 10px;
 left: 10px;
-font-size: 30px;
+font-size: 14px;
 transition: 0.6s;
 color: #5793aad2;
 `;
@@ -67,19 +103,20 @@ width: 200px;
   letter-spacing: 1px;
   cursor: pointer;
   transition: 0.2s;
-  background-color: #fff;
+  background-color: #daddc0;
   border: 2px solid rgba(33, 33, 33, 0.2);
   margin-bottom: 20px;
 
-  &:hover{
+  :hover,
+  :focus {
     background-color: rgb(207, 207, 207);
   }
 `;
 
 export const Error = styled(ErrorMessage)`
   position: absolute;
-  bottom: -50px;
-  left: 15px;
+  bottom: -35px;
+  left: 45px;
   font-size: 12px;
   color: #ff4500;
 `;

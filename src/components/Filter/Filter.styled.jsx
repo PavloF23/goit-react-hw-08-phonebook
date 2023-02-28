@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-margin-top: 30px;
-width: 100%;
+// margin-top: 30px;
+width: 300px;
 height: 70px;
 align-items: center;
 `;
@@ -10,14 +10,15 @@ align-items: center;
 export const Label = styled.label`
     position: relative;
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
     color: #000;
     font-size: 18px;
 
     & input:focus ~ span, 
     & input:not(:placeholder-shown) ~ span{
-        transform: translateX(-13px) translateY(-30px);
-        font-size: 20px;
+        transform: translateX(-10px) translateY(-25px);
+        font-size: 10px;
+        color: #000;
     }
 `;
 
@@ -32,7 +33,7 @@ outline: none;
 background: #fff;
 padding: 10px;
 border-radius: 10px;
-font-size: 20px;
+font-size: 14px;
 transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:focus,
@@ -44,9 +45,9 @@ transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 export const Span = styled.span`
 position: absolute;
-top: 5px;
+top: 10px;
 left: 10px;
-font-size: 30px;
+font-size: 14px;
 transition: 0.6s;
 color: #5793aad2;
 `;
