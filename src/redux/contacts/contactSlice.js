@@ -9,53 +9,112 @@ const contactSlice = createSlice({
       error: null
     },
 
-    extraReducers:  {
-
-      [fetchContacts.pending](state) {
+    extraReducers: builder => {
+      builder
+      .addCase(fetchContacts.pending, (state) => {
         return { ...state, isLoading: true };
-      },
-      [fetchContacts.fulfilled](state, action) {
+      })
+      .addCase(fetchContacts.fulfilled, (state, action) => {
         return {
           ...state,
           items: [...action.payload],
           isLoading: false,
           error: null,
         };
-      },
-      [fetchContacts.rejected](state, action) {
+      })
+      .addCase(fetchContacts.rejected, (state, action) => {
         return { ...state, isLoading: false, error: action.payload };
-      },
+      })
 
-      [addContact.pending](state) {
+      .addCase(addContact.pending, (state) => {
         return { ...state, isLoading: true };
-      },
-      [addContact.fulfilled](state, action) {
+      })
+      .addCase(addContact.fulfilled, (state, action) => {
         return {
           ...state,
           items: [...state.items, action.payload],
           isLoading: false,
           error: null,
         };
-      },
-      [addContact.rejected](state, action) {
+      })
+      .addCase(addContact.rejected, (state, action) => {
         return { ...state, isLoading: false, error: action.payload };
-      },
+      })
   
-      [deleteContact.pending](state) {
+      .addCase(deleteContact.pending, (state) => {
         return { ...state, isLoading: true };
-      },
-      [deleteContact.fulfilled](state, action) {
+      })
+      .addCase(deleteContact.fulfilled, (state, action) => {
         return {
           ...state,
           items: state.items.filter(contact => contact.id !== action.payload.id),
           isLoading: false,
           error: null,
         };
-      },
-      [deleteContact.rejected](state, action) {
+      })
+      .addCase(deleteContact.rejected, (state, action) => {
         return { ...state, isLoading: false, error: action.payload };
-      },
+      })
     },  
 });
 
 export const contactReducer = contactSlice.reducer;
+
+// const contactSlice = createSlice({
+//   name: 'contacts',
+//   initialState: {
+//       items: [],
+//       isLoading: false,
+//       error: null
+//     },
+
+//     extraReducers:  {
+
+//       [fetchContacts.pending](state) {
+//         return { ...state, isLoading: true };
+//       },
+//       [fetchContacts.fulfilled](state, action) {
+//         return {
+//           ...state,
+//           items: [...action.payload],
+//           isLoading: false,
+//           error: null,
+//         };
+//       },
+//       [fetchContacts.rejected](state, action) {
+//         return { ...state, isLoading: false, error: action.payload };
+//       },
+
+//       [addContact.pending](state) {
+//         return { ...state, isLoading: true };
+//       },
+//       [addContact.fulfilled](state, action) {
+//         return {
+//           ...state,
+//           items: [...state.items, action.payload],
+//           isLoading: false,
+//           error: null,
+//         };
+//       },
+//       [addContact.rejected](state, action) {
+//         return { ...state, isLoading: false, error: action.payload };
+//       },
+  
+//       [deleteContact.pending](state) {
+//         return { ...state, isLoading: true };
+//       },
+//       [deleteContact.fulfilled](state, action) {
+//         return {
+//           ...state,
+//           items: state.items.filter(contact => contact.id !== action.payload.id),
+//           isLoading: false,
+//           error: null,
+//         };
+//       },
+//       [deleteContact.rejected](state, action) {
+//         return { ...state, isLoading: false, error: action.payload };
+//       },
+//     },  
+// });
+
+// export const contactReducer = contactSlice.reducer;
