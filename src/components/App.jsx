@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from '../pages/Home';
 import { lazy, Suspense, useEffect } from 'react';
 import { refreshUser } from 'redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
@@ -10,6 +9,7 @@ import { Toaster } from 'react-hot-toast';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { ThemeProvider } from 'theme-ui';
 
+const Home = lazy(() => import('../pages/Home'));
 const Register = lazy(() => import('../pages/Register'));
 const Login = lazy(() => import('../pages/Login'));
 const Contacts = lazy(() => import('../pages/Contacts'));
