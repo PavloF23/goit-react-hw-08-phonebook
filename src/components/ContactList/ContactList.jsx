@@ -12,15 +12,15 @@ export function ContactList() {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  const [showEditForm, setShowEditForm] = useState(false);
-
-  const toggleEditForm = () => {
-    setShowEditForm(!showEditForm);
-  };
+  const [showEditForm, setShowEditForm] = useState(false); 
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+  
+  const toggleEditForm = () => {
+    setShowEditForm(!showEditForm);
+  };
 
   const getVisibleContacts = () => {
     return contacts.filter(contact => contact.name.toLowerCase().includes(filter.trim().toLowerCase()))
@@ -39,10 +39,10 @@ export function ContactList() {
               </Box>
             </Contact>  
             <div>
-            <EditBtn type="button" onClick={toggleEditForm} aria-label="Edit contact">
-              <MdEdit size="18" /> Edit
-            </EditBtn>  
-            <Button type='button' onClick={() => dispatch(deleteContact(id))}><AiTwotoneDelete/> Del</Button>
+              <EditBtn type="button" onClick={toggleEditForm} aria-label="Edit contact">
+                <MdEdit size="18" /> Edit
+              </EditBtn>  
+              <Button type='button' onClick={() => dispatch(deleteContact(id))}><AiTwotoneDelete/> Del</Button>
             </div>
           </Item>
           )) ) : (
