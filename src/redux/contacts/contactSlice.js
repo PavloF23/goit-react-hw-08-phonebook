@@ -58,8 +58,4 @@ const contactSlice = createSlice({
     },  
 });
 
-<<<<<<< HEAD
 export const contactReducer = contactSlice.reducer;
-=======
-export const contactReducer = contactSlice.reducer;
->>>>>>> 96b776b876440f17829a40e602a6442edfd1fed0
