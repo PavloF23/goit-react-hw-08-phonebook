@@ -1,8 +1,7 @@
 import { MdSave } from 'react-icons/md';
-import { Box } from 'components/Box/Box';
 import { Formik, Field } from 'formik';
 import * as yup from 'yup';
-import { FormStyled, FormField, InputName, InputNumber, FormBtn, ErrorStyled,} from './EditForm.styled';
+import { FormStyled, Box, FormField, InputName, InputNumber, FormBtn, ErrorStyled,} from './EditForm.styled';
 import { BsPersonCircle } from 'react-icons/bs';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
 
@@ -28,11 +27,11 @@ export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
       <FormStyled>
         <BsPersonCircle size="64" color={getRandomHexColor()} />
 
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          mt={4}
+        <div
+          // display="flex"
+          // alignItems="center"
+          // justifyContent="space-between"
+          // mt={4}
         >
           <Box>
             <FormField>
@@ -58,7 +57,7 @@ export function EditForm({ onFormSubmit, nameToUpdate, numberToUpdate }) {
           <FormBtn type="submit" aria-label="Formtact">
             <MdSave size="40" />
           </FormBtn>
-        </Box>
+        </div>
       </FormStyled>
     </Formik>
   );

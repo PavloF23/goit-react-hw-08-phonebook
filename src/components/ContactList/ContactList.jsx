@@ -7,20 +7,32 @@ import { useEffect, useState } from "react";
 import { BsPersonCircle } from 'react-icons/bs';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
 import { MdEdit } from 'react-icons/md';
+import Modal from 'components/Modal/Modal';
+import { EditForm } from 'components/EditForm/EditForm';
 
 export function ContactList() {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  const [showEditForm, setShowEditForm] = useState(false); 
+  // const [showEditForm, setShowEditForm] = useState(false); 
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
   
-  const toggleEditForm = () => {
-    setShowEditForm(!showEditForm);
+  // const toggleEditForm = () => {
+  //   setShowEditForm(!showEditForm);
+  // };
+
+  const openModal = () => {
+    setShowModal(!showModal);   
   };
+
+  // const handleUpdate = updatedContact => {
+  //   dispatch(updateContact({ id, ...updatedContact }));
+  //   toggleEditForm();
+  // };
 
   const getVisibleContacts = () => {
     return contacts.filter(contact => contact.name.toLowerCase().includes(filter.trim().toLowerCase()))
@@ -29,7 +41,7 @@ export function ContactList() {
   return (
     <List>
         {contacts.length ? (
-         getVisibleContacts().map(({ id, name, number, foto }) => (
+         getVisibleContacts().map(({ id, name, number }) => (
           <Item key={id} >
             <Contact>
               <BsPersonCircle size="40" color={getRandomHexColor()} />
@@ -39,7 +51,7 @@ export function ContactList() {
               </Box>
             </Contact>  
             <div>
-              <EditBtn type="button" onClick={toggleEditForm} aria-label="Edit contact">
+              <EditBtn type="button" onClick={openModal} aria-label="Edit contact">
                 <MdEdit size="18" /> Edit
               </EditBtn>  
               <Button type='button' onClick={() => dispatch(deleteContact(id))}><AiTwotoneDelete/> Del</Button>
@@ -48,7 +60,15 @@ export function ContactList() {
           )) ) : (
             <p>Your phonebook is empty. Please add contact.</p>
           )}
-          
+             {showModal && (
+        <Modal onClose={openModal}>
+          <EditForm
+            // onFormSubmit={handleUpdate}
+            // nameToUpdate={name}
+            // numberToUpdate={number}
+          />
+        </Modal>
+      )}          
     </List>        
   );
 }

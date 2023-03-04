@@ -1,23 +1,44 @@
 import styled from 'styled-components';
+import { Form, Field, ErrorMessage } from 'formik';
+import InputMask from 'react-input-mask';
 
-export const List = styled.ul` 
-  position: relative;
+export const FormStyled = styled(Form)`
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 130px;  
-  color: #000;  
-  font-weight: 500;  
-  font-size: 20px;
-  padding: 0;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  width: 500px;
+  padding: 20px 40px;
+  // position: fixed;
+  z-index: 1;
+  top: 50%;
+  background-color: #fff5ee; 
+  // margin-left: -40px;
 `;
 
-export const Item = styled.li`
+export const FormField = styled.div`
   display: flex;
-  justify-content: space-between;
- 
-  &:not(:last-child) {
-    margin-bottom: 10px;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+export const InputName = styled(Field)`
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+border: 2px solid rgba(33, 33, 33, 0.2);
+color: #000;
+outline: none;
+background: #fff;
+padding: 6px;
+border-radius: 10px;
+font-size: 14px;
+
+&:focus,
+&:not(:placeholder-shown) {
+    border-color: #010101;
+    outline-color: rgba(33, 33, 33, 0.5);
   }
 `;
 
@@ -29,43 +50,62 @@ export const Box = styled.div`
   margin-left: 20px;
 `;
 
-export const Img = styled.img`
-  border-radius: 50%;
-`;
+export const InputNumber = styled(InputMask)`
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+border: 2px solid rgba(33, 33, 33, 0.2);
+color: #000;
+outline: none;
+background: #fff;
+padding: 6px;
+border-radius: 10px;
+font-size: 14px;
 
-export const Contact = styled.div`
-  font-size: 15px;
-  display: flax;
-`;
-
-export const Button = styled.button`
-  width: 85px;
-  height: auto;
-  cursor: pointer;
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    transform: scale(1.1);
+&:focus,
+&:not(:placeholder-shown) {
+    border-color: #010101;
+    outline-color: rgba(33, 33, 33, 0.5);
   }
 `;
 
-export const EditBtn = styled.button`
-  width: 85px;
-  height: auto;
-  border: none;
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-color: transparent;
+export const FormBtn = styled.button`
   cursor: pointer;
+  padding: 4px 8px;
+  font-size: 30px;
+  // height: 35px;
+  border-radius: 4px;
+  border: none;
+  background-color: #fff5ee;
+  transition: background-color 250ms linear;
 
-  &:hover {
-    transform: scale(1.1);
+  &:hover,
+  &:focus {
+    background-color: #808080;
   }
+`;
+
+// export const EditBtn = styled.button`
+//   width: 85px;
+//   height: auto;
+//   border: none;
+//   display: inline-block;
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   background-color: transparent;
+//   cursor: pointer;
+
+//   &:hover {
+//     transform: scale(1.1);
+//   }
+// `;
+
+export const ErrorStyled = styled(ErrorMessage)`
+  position: absolute;
+  bottom: 0;
+  transform: translatey(100%);
+  font-size: 10px;
+  background-color: white;
+  color: #212121;
 `;
