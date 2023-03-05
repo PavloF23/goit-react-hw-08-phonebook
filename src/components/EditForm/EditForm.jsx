@@ -5,21 +5,24 @@ import { FormEdit, Box, FormField, InputName, InputNumber, Span, FormBtn, ErrorS
 import { BsPersonCircle } from 'react-icons/bs';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
 import { selectEditContact} from 'redux/contacts/selectors';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { editContact } from 'redux/contacts/operation';
-// import { showEditForm } from 'redux/contacts/contactSlice';
 
 let schema = yup.object().shape({
   name: yup.string().required(),
   number: yup.string().required(),
 });
 
-export function EditForm({onClose}) {
+export function EditForm({ onClose }) {
   const dispatch = useDispatch();
   const { name, number, id } = useSelector(selectEditContact);
+  const initialValues={
+    name,
+    number,
+  };
 
   const handleChangeContact = (values, { resetForm }) => {
-    editContact({ id, values });
+    editContact( id, values );
     dispatch(editContact(null));
     onClose();
     resetForm();
@@ -27,10 +30,7 @@ export function EditForm({onClose}) {
 
   return (
     <Formik
-    initialValues={{
-      name: name,
-      number: number,
-    }}
+    initialValues={initialValues}
     onSubmit={handleChangeContact}
       validationSchema={schema}
     >

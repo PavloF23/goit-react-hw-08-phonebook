@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { List, Item, Contact, Button, Box, EditBtn } from './ContactList.styled';
 import { AiFillPhone, AiTwotoneDelete } from "react-icons/ai";
-import { deleteContact, fetchContacts } from 'redux/contacts/operation';
+import { deleteContact, fetchContacts} from 'redux/contacts/operation';
 import { getContacts, getFilter } from 'redux/contacts/selectors';
 import { useEffect, useState } from "react";
 import { BsPersonCircle } from 'react-icons/bs';
@@ -9,13 +9,12 @@ import { getRandomHexColor } from 'utils/getRandomHexColor';
 import { MdEdit } from 'react-icons/md';
 import Modal from 'components/Modal/Modal';
 import { EditForm } from 'components/EditForm/EditForm';
-// import { number } from 'yup';
+import { getEditingContact } from 'redux/contacts/contactSlice';
 
 export function ContactList() {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  // const [showEditForm, setShowEditForm] = useState(false); 
   const [showModal, setShowModal] = useState(false);
   
 
@@ -27,10 +26,10 @@ export function ContactList() {
     setShowModal(!showModal);   
   };
 
-    // const actualFields = (editContact) => {
-    //   dispatch(editContact({ id, ...editContact }));
-    //   openModal();
-    // };
+  const handleEdit = ({ id, name, number }) => {
+    dispatch(getEditingContact);
+    openModal();
+  }
 
   const getVisibleContacts = () => {
     return contacts.filter(contact => contact.name.toLowerCase().includes(filter.trim().toLowerCase()))
@@ -50,7 +49,7 @@ export function ContactList() {
               </Box>
             </Contact>  
             <div>
-              <EditBtn type="button" onClick={openModal} aria-label="Edit contact">
+              <EditBtn type="button" onClick={() => handleEdit({ id, name, number })} aria-label="Edit contact">
                 <MdEdit size="18" /> Edit
               </EditBtn>  
               <Button type='button' onClick={() => dispatch(deleteContact(id))}><AiTwotoneDelete/> Del</Button>
@@ -63,7 +62,6 @@ export function ContactList() {
         <Modal onClose={openModal}>
           <EditForm
             onClose={openModal} 
-            
           />
         </Modal>
       )}          

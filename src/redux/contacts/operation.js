@@ -39,12 +39,12 @@ export const fetchContacts = createAsyncThunk(
 
   export const editContact = createAsyncThunk(
     'contacts/editContact',
-    async (contactId, thunkAPI) => {
+    async (contactId, values, thunkAPI) => {
       try {
-        const response = await axios.patch(`/contacts/${contactId}`);
+        const response = await axios.patch(`/contacts/${contactId}`, values);
         return response.data;
       } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
       }
     }
-  );
+  ); 
