@@ -2,24 +2,40 @@ import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 import InputMask from 'react-input-mask';
 
-export const FormStyled = styled(Form)`
+export const FormEdit = styled(Form)`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 24px;
   width: 500px;
   padding: 20px 40px;
-  // position: fixed;
   z-index: 1;
   top: 50%;
   background-color: #fff5ee; 
-  // margin-left: -40px;
 `;
 
-export const FormField = styled.div`
+export const Box = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 250px;
+`;
+
+export const FormField = styled.label`
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 10px;
+  margin-bottom: 35px;
+  color: #000;
+  font-size: 18px;
+
+  & input:focus ~ span,
+  & input:not(:placeholder-shown) ~ span{
+    transform: translateX(-10px) translateY(-25px);
+    font-size: 10px;
+  }
 `;
 
 export const InputName = styled(Field)`
@@ -42,14 +58,6 @@ font-size: 14px;
   }
 `;
 
-export const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  margin-left: 20px;
-`;
-
 export const InputNumber = styled(InputMask)`
 position: absolute;
 top: 0;
@@ -70,11 +78,19 @@ font-size: 14px;
   }
 `;
 
+export const Span = styled.span`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  transition: 0.6s;
+  color: #5793aad2;
+`;
+
 export const FormBtn = styled.button`
   cursor: pointer;
   padding: 4px 8px;
   font-size: 30px;
-  // height: 35px;
   border-radius: 4px;
   border: none;
   background-color: #fff5ee;
@@ -85,21 +101,6 @@ export const FormBtn = styled.button`
     background-color: #808080;
   }
 `;
-
-// export const EditBtn = styled.button`
-//   width: 85px;
-//   height: auto;
-//   border: none;
-//   display: inline-block;
-//   background-repeat: no-repeat;
-//   background-size: contain;
-//   background-color: transparent;
-//   cursor: pointer;
-
-//   &:hover {
-//     transform: scale(1.1);
-//   }
-// `;
 
 export const ErrorStyled = styled(ErrorMessage)`
   position: absolute;

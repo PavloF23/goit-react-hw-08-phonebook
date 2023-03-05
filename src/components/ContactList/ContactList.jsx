@@ -9,6 +9,7 @@ import { getRandomHexColor } from 'utils/getRandomHexColor';
 import { MdEdit } from 'react-icons/md';
 import Modal from 'components/Modal/Modal';
 import { EditForm } from 'components/EditForm/EditForm';
+// import { number } from 'yup';
 
 export function ContactList() {
   const dispatch = useDispatch();
@@ -16,29 +17,27 @@ export function ContactList() {
   const filter = useSelector(getFilter);
   // const [showEditForm, setShowEditForm] = useState(false); 
   const [showModal, setShowModal] = useState(false);
+  
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-  
-  // const toggleEditForm = () => {
-  //   setShowEditForm(!showEditForm);
-  // };
 
   const openModal = () => {
     setShowModal(!showModal);   
   };
 
-  // const handleUpdate = updatedContact => {
-  //   dispatch(updateContact({ id, ...updatedContact }));
-  //   toggleEditForm();
-  // };
+    // const actualFields = (editContact) => {
+    //   dispatch(editContact({ id, ...editContact }));
+    //   openModal();
+    // };
 
   const getVisibleContacts = () => {
     return contacts.filter(contact => contact.name.toLowerCase().includes(filter.trim().toLowerCase()))
 }
 
   return (
+    
     <List>
         {contacts.length ? (
          getVisibleContacts().map(({ id, name, number }) => (
@@ -63,9 +62,8 @@ export function ContactList() {
              {showModal && (
         <Modal onClose={openModal}>
           <EditForm
-            // onFormSubmit={handleUpdate}
-            // nameToUpdate={name}
-            // numberToUpdate={number}
+            onClose={openModal} 
+            
           />
         </Modal>
       )}          
