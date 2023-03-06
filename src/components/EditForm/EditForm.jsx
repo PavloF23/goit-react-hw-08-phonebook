@@ -6,7 +6,7 @@ import { BsPersonCircle } from 'react-icons/bs';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
 import { selectEditContact } from 'redux/contacts/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { editContact} from 'redux/contacts/operation';
+import { editContact, fetchContacts } from 'redux/contacts/operation';
 // import { getEditingContact } from 'redux/contacts/contactSlice';
 
 let schema = yup.object().shape({
@@ -16,20 +16,23 @@ let schema = yup.object().shape({
 
 export function EditForm({ onClose }) {
   const dispatch = useDispatch();
-  const { name, number, id } = useSelector(selectEditContact);
+ const { name, number, id } = useSelector(selectEditContact);
+
   const initialValues = {
     name,
     number,
   };
 
   const handleChangeContact = (values, { resetForm }) => {
-  dispatch(editContact({id, ...values }));
+    console.log({ name, number, id } )
+  dispatch(editContact({id, values }));
     // dispatch(getEditingContact(null));
     onClose();
     resetForm();
+    dispatch(fetchContacts());
   };
 
-  return (
+  return (  
     <Formik
       initialValues={initialValues}
       onSubmit={handleChangeContact}

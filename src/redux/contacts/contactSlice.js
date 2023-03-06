@@ -74,24 +74,19 @@ const contactSlice = createSlice({
         return {...state, isLoading: true };
       })
       .addCase(editContact.fulfilled, (state, action) => {
-        console.log(action.payload.id);
-        return {
-          ...state,
-        items: state.items.map(
-          contact => contact.id === action.payload.id
-        ),
+        state.items.map(item => item !== action.payload)
         // const index = state.items.findIndex(
         //   contact => contact.id === action.payload.id
         // );
         // state.items.splice(index, 1, action.payload);
-        isLoading: false,
-        error: null,
-        };
+        //isLoading: false,
+        //error: null,
+       // };
       })
       .addCase(editContact.rejected, (state, action) => {
         return { ...state, isLoading: false, error: action.payload };
-      });
-  },
+      })
+  }
 });
 
 export const { getEditingContact } = contactSlice.actions;
