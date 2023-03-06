@@ -77,7 +77,7 @@ const contactSlice = createSlice({
         console.log(action.payload.id);
         return {
           ...state,
-        items: state.items.filter(
+        items: state.items.map(
           contact => contact.id === action.payload.id
         ),
         // const index = state.items.findIndex(

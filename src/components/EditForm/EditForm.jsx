@@ -23,7 +23,7 @@ export function EditForm({ onClose }) {
   };
 
   const handleChangeContact = (values, { resetForm }) => {
-    dispatch(editContact({id, ...values }));
+  dispatch(editContact({id, ...values }));
     // dispatch(getEditingContact(null));
     onClose();
     resetForm();
