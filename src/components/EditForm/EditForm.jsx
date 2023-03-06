@@ -6,7 +6,7 @@ import { BsPersonCircle } from 'react-icons/bs';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
 import { selectEditContact } from 'redux/contacts/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { editContact } from 'redux/contacts/operation';
+import { editContact} from 'redux/contacts/operation';
 // import { getEditingContact } from 'redux/contacts/contactSlice';
 
 let schema = yup.object().shape({
