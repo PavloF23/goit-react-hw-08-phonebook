@@ -45,16 +45,3 @@ font-size: 35px;
 line-height: 1.5;
 }
 `;
-
-export const PageBox = styled.div`
-    minHeight: calc(100vh - 50px);
-    display: flex;
-    alignItems: center;
-    justifyContent: center;
-`;
-
-export const PageTitle = styled.h1`
-    fontWeight: 500px;
-    fontSize: 48px;
-    textAlign: center;
-`;
